@@ -4,14 +4,13 @@ from django.db import models
 # Create your models here.
 
 
-class UserCon(models.Model):
-    bname = models.CharField(max_length=20)
-    pwsd = models.CharField(max_length=160)
-    pmail = models.CharField(max_length=32)
-
-
-class UserBuycon(models.Model):
-    bpnum = models.CharField(max_length=11)
-    paddr = models.CharField(max_length=500,null=True,blank=True)
-    pbuy = models.CharField(max_length=500,null=True,blank=True)
-    huser = models.ForeignKey('UserCon')
+class UserInfo(models.Model):
+    uname = models.CharField(max_length=20)
+    upwd = models.CharField(max_length=40)
+    umail = models.CharField(max_length=20)
+    ushou = models.CharField(max_length=10)
+    uaddress = models.CharField(default='', max_length=100)
+    ucode = models.CharField(default='',max_length=6)
+    uphone = models.CharField(default='',max_length=11)
+    def __str__(self):
+        return self.uname

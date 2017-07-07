@@ -1,6 +1,7 @@
 {% extends 'jicheng_base.html' %}
 	{% block qu1 %}
-        <title>用户注册</title>
+        <title>用户登陆</title>
+        <script type="text/javascript" src="/static/js/register.js"></script>
     {% endblock qu1 %}
 
 {% block qu3 %}
@@ -14,21 +15,23 @@
 		<div class="r_con fr">
 			<div class="reg_title clearfix">
 				<h1>用户注册</h1>
-				<a href="#">登录</a>
+				<a href="/login/">登录</a>
 			</div>
 			<div class="reg_form clearfix">
-				<form action="/commit/" method="post">
+				<form action="/commit/" method="post" id="reg_form">
                     {% csrf_token %}
 				<ul>
 					<li>
 						<label>用户名:</label>
 						<input type="text" name="user_name" id="user_name">
 						<span class="error_tip">提示信息</span>
+                        <span class="yanzheng">用户名重复</span>
 					</li>
 					<li>
 						<label>密码:</label>
 						<input type="password" name="pwd" id="pwd">
 						<span class="error_tip">提示信息</span>
+
 					</li>
 					<li>
 						<label>确认密码:</label>
