@@ -14,3 +14,5 @@ class UserInfo(models.Model):
     uphone = models.CharField(default='',max_length=11)
     def __str__(self):
         return self.uname
+
+

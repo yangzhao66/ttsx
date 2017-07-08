@@ -23,7 +23,7 @@ def commit(request):#用户注册提交
     user.upwd = upwd_sha1
     user.umail = umail
     user.save()
-    return redirect('/center/')
+    return redirect('/user/center/')
 def chachong(request):#判断注册名是否重复
     uname = request.GET.get('uname')
     result = UserInfo.objects.filter(uname=uname).count()
@@ -54,8 +54,6 @@ def site(request):
         user.save()
     context = {'user': user}
     return render(request,'yonghu/site.html',context)
-def index(request): #网站主页
-    return render(request,'yonghu/index.html')
 
 def login(request):
     uname = request.COOKIES.get('uname','')
@@ -66,6 +64,7 @@ def login(request):
 def denglu(request):#用来进行登陆验证
     dict = request.POST
     uname = dict.get('user_name')
+    print(uname)
     upwd = dict.get('user_pwd')
     btn = dict.get('remember','0')
     s1 = sha1()
