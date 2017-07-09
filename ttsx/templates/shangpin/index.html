@@ -5,14 +5,14 @@
 {% block qu3 %}
     <div class="search_bar clearfix">
 		<a href="index.html" class="logo fl"><img src="/static/img/logo.png"></a>
-        <form class="search_con fl" method="">
+        <form class="search_con fl" method="get" action="/search/" target="_blank">
 {#		<div class="search_con fl">#}
-			<input type="text" class="input_text fl" name="" placeholder="搜索商品">
-			<input type="button" class="input_btn fr" name="" value="搜索">
+			<input type="text" class="input_text fl" name="q" placeholder="搜索商品">
+			<input type="submit" class="input_btn fr" value="搜索">
 {#		</div>#}
         </form>
 		<div class="guest_cart fr">
-			<a href="#" class="cart_name fl">我的购物车</a>
+			<a href="/user/cart/" class="cart_name fl">我的购物车</a>
 			<div class="goods_count fl" id="show_count">1</div>
 		</div>
 	</div>
@@ -64,7 +64,7 @@
 				<a href="{{ nlist.id }}">{{ nlist.gtitle }}</a>
                 {% endfor %}
 			</div>
-			<a href="#" class="goods_more fr" id="fruit_more">查看更多 ></a>
+			<a href="/list{{ gds.t1.id }}_1_1/" class="goods_more fr" id="fruit_more">查看更多 ></a>
 		</div>
     <div class="goods_con clearfix">
 			<div class="goods_banner fl"><img src="/static/img/banner0{{ forloop.counter }}.jpg"></div>

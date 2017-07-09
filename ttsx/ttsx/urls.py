@@ -20,5 +20,6 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^user/',include('yonghu.urls')),
     url(r'^tinymce/', include('tinymce.urls')),
-    url(r'^',include('shangpin.urls'))
+    url(r'^',include('shangpin.urls')),
+    url(r'search/',include('haystack.urls')),
 ]

@@ -93,3 +93,7 @@ def denglu(request):#用来进行登陆验证
 def login_out(request):
     request.session.flush()
     return redirect('/')
+
+@user_login
+def cart(request):
+    return render(request,'yonghu/cart.html')

@@ -9,5 +9,6 @@ urlpatterns = [
     url(r'^center/$',views.center),
     url(r'^order/$',views.order),
     url(r'^site/$',views.site),
-    url(r'^login_out/$',views.login_out)
+    url(r'^login_out/$',views.login_out),
+    url(r'^cart/$',views.cart),
 ]
