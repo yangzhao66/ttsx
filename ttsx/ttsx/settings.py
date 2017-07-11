@@ -1,4 +1,4 @@
-#coding=utf-8
+# coding=utf-8
 """
 Django settings for ttsx project.
 
@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'shangpin',
     'tinymce',
     'haystack',
+    'cart',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -61,7 +62,7 @@ ROOT_URLCONF = 'ttsx.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -84,10 +85,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ttsx',
-        'HOST':'localhost',
-        'PORT':'3306',
-        'USER':'root',
-        'PASSWORD':'mysql',
+        'HOST': 'localhost',
+        'PORT': '3306',
+        'USER': 'root',
+        'PASSWORD': 'mysql',
     }
 }
 
@@ -110,9 +111,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-MEDIA_ROOT = os.path.join(BASE_DIR,'static')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static')
 
 TINYMCE_DEFAULT_CONFIG = {
     'theme': 'advanced',
@@ -123,12 +124,15 @@ TINYMCE_DEFAULT_CONFIG = {
 
 HAYSTACK_CONNECTIONS = {
     'default': {
-        #使用whoosh引擎
+        # 使用whoosh引擎
         'ENGINE': 'haystack.backends.whoosh_cn_backend.WhooshEngine',
-        #索引文件路径
+        # 索引文件路径
         'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
     }
 }
-#当添加、修改、删除数据时，自动生成索引
+# 当添加、修改、删除数据时，自动生成索引
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+#全文检索分页：
+HAYSTACK_SEARCH_RESULTS_PER_PAGE = 12
+
 
